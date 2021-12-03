@@ -5,7 +5,7 @@
 
 product_t *items;
 danger_t *dangers;
-int n_items, pro_pairs, ks_cap, opt_p, node;
+int n_items, pro_pairs, ks_cap, opt_p, node, cortes;
 int *X, *opt_x;
 float bound;
 
@@ -38,12 +38,19 @@ int main () {
     //naive_knapsack(0);
     branch_bound_knapsack(0, 0);
     
-    fprintf(stderr, "nodes: %d, time: %d ms\n", node, global_time);
+    fprintf(stderr, "nodes: %d, cortes %d, time: %d ms\n", node, cortes, global_time);
     
+    int first = 1;
+
     printf("%d\n", opt_p);
     for (int i=0; i<n_items; ++i)
-        if (opt_x[i] == 1)
-            printf("%d ", i+1);
+        if (opt_x[i] == 1) {
+            if (first) {
+                printf("%d", i+1);
+                first = 0;
+            } else 
+            printf(" %d", i+1);
+        }
     printf("\n");
 
     free(items);

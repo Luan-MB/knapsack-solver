@@ -5,7 +5,7 @@
 
 product_t *items;
 danger_t *dangers;
-int n_items, pro_pairs, ks_cap, opt_p = 0, node = 1;
+int n_items, pro_pairs, ks_cap, opt_p = 0, node = 0, cortes = 0;
 int *X, *opt_x;
 
 // Ordena o vetor de produtos em ordem crescente
@@ -127,7 +127,10 @@ void branch_bound_knapsack (int l, int cur_w) {
             partial_solution += items[i].profit * X[i];
         float bound = partial_solution + rational_knapsack(items+l, n_items-l, ks_cap - cur_w);
         // Checa se a subarvore do nodo e candidata a melhorar a solucao parcial
-        if (bound <= opt_p) return;
+        if (bound <= opt_p) {
+            cortes++;
+            return;
+        }
         // Analisa se o produto a ser inserido esta dentro do limite de peso
         // E se atende as regras de conflito entre os produtos
         if ((cur_w + items[l].weight <= ks_cap) && !(conflict(l))) {

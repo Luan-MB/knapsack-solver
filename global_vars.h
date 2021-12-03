@@ -21,6 +21,7 @@ extern int pro_pairs;
 extern int ks_cap;
 extern int opt_p;
 extern int node;
+extern int cortes;
 extern int *X;
 extern int *opt_x;
 extern unsigned global_time;

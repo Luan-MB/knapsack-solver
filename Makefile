@@ -1,5 +1,5 @@
 CC     = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -DDEBUG
 
 PROG = quimica 
 OBJS = quimica.o knapsack.o contador.o
