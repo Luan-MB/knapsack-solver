@@ -1,2 +1,3 @@
-./aval-testes/
+.gitignore
+/aval-testes/
 *tar.gz
