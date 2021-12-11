@@ -1,8 +1,8 @@
 CC     = gcc
-CFLAGS = -Wall -DDEBUG
+CFLAGS = -Wall
 
-PROG = quimica 
-OBJS = quimica.o knapsack.o contador.o
+PROG = knapsack_solver
+OBJS = knapsack_solver.o knapsack.o contador.o
 
 .PHONY: clean purge all
 

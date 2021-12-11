@@ -1,10 +1,17 @@
 #ifndef __KNAPSACK__
 #define __KNAPSACK__
 
-#include "global_vars.h"
+typedef struct {
+    int profit;
+    int weight;
+    int have_restrictions;
+} product_t;
 
-float rational_knapsack (product_t *items, int n_items, int ks_cap);
-void naive_knapsack (int l);
-void branch_bound_knapsack (int l, int cur_w);
+typedef struct {
+    int r1;
+    int r2;
+} restriction_t;
+
+void solve_knapsack ();
 
 #endif
